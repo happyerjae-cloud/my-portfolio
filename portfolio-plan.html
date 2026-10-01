@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
 <style>
 :root{
-  /* 색조합2: Blue #c4dae8 · Butter #feefb8 · Chocopie #432f2e — index.html과 동일 */
+  /* 색조합2: Blue #c4dae8 · Butter #feefb8 · Chocopie #432f2e */
   --bg:#fff7d9; --bg-alt:#e2edf4; --ink:#432f2e; --ink-soft:#6b5856; --line:#efe3bd; --card:#ffffff;
   --pill-bg:#c4dae8; --sky:#feefb8; --accent:#432f2e; --accent-dark:#2e201f; --on-accent:#feefb8;
   --content: 1360px; --gut:20px;
@@ -27,14 +27,13 @@ a{color:inherit;text-decoration:none}
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease}
 .reveal.in{opacity:1;transform:translateY(0)}
 
-/* ---------- header (index.html과 동일) ---------- */
+/* ---------- header ---------- */
 header.site{position:sticky;top:0;z-index:50;background:rgba(255,247,217,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 header.site .shell{display:flex;align-items:center;justify-content:space-between;height:76px}
 .logo{font-size:18px;font-weight:800;letter-spacing:-.01em}
 nav.main{display:flex;gap:var(--sp5)}
 nav.main a{font-size:14px;color:var(--ink-soft);font-weight:500}
-nav.main a:hover,nav.main a.on{color:var(--accent)}
-nav.main a.on{font-weight:800}
+nav.main a:hover{color:var(--accent)}
 .cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:var(--on-accent);font-size:13px;font-weight:700;padding:12px 20px;border-radius:999px}
 
 .btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;padding:14px 24px;border-radius:999px}
@@ -71,6 +70,13 @@ nav.main a.on{font-weight:800}
 .b-third{grid-column:span 4}
 .b-third .val{font-size:16px;font-weight:700;line-height:1.6}
 .b-third .sub{font-size:13px;color:var(--ink-soft);margin-top:6px}
+.b-refs{grid-column:span 12}
+.refs{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gut)}
+.ref{position:relative;display:flex;flex-direction:column;gap:6px;background:var(--bg);border-radius:16px;padding:var(--sp3) var(--sp3) 64px;transition:background .2s}
+.ref:hover{background:var(--sky)}
+.ref .rname{font-size:16px;font-weight:800}
+.ref .rdesc{font-size:13px;color:var(--ink-soft);line-height:1.55}
+.arrow-circ{position:absolute;right:var(--sp3);bottom:var(--sp3);width:34px;height:34px;border-radius:50%;background:var(--card);display:flex;align-items:center;justify-content:center;font-size:13px}
 .b-color{grid-column:span 12}
 .swatches{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gut)}
 .sw{border-radius:16px;padding:var(--sp4) var(--sp3) var(--sp3);min-height:140px;display:flex;flex-direction:column;justify-content:flex-end}
@@ -87,19 +93,18 @@ nav.main a.on{font-weight:800}
 .prio.high{background:var(--accent);color:var(--on-accent)}
 .prio.mid{background:var(--sky);color:var(--accent)}
 
-/* 05 필요한 화면 — index의 스킬 칩과 같은 형태 */
+/* 05 필요한 화면 */
 .chip{grid-column:span 4;display:flex;align-items:center;gap:var(--sp3);padding:var(--sp4)}
 .chip .ic{width:52px;height:52px;border-radius:14px;background:var(--sky);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;flex-shrink:0}
 .chip .nm{font-size:16px;font-weight:800;margin-bottom:2px}
 .chip .dsc{font-size:12.5px;color:var(--ink-soft);line-height:1.5}
 
 /* 06 얻고 싶은 것 */
-.b-goal{grid-column:span 12;background:var(--accent);color:var(--on-accent);display:flex;align-items:center;justify-content:space-between;gap:var(--sp5)}
+.b-goal{grid-column:span 12;background:var(--accent);color:var(--on-accent)}
 .b-goal h4{color:var(--pill-bg)}
-.b-goal p{font-size:clamp(18px,1.8vw,22px);font-weight:700;line-height:1.6;max-width:760px}
-.b-goal .btn{background:var(--on-accent);color:var(--accent);flex-shrink:0}
+.b-goal p{font-size:clamp(18px,1.8vw,22px);font-weight:700;line-height:1.6;max-width:820px}
 
-/* ---------- footer (index.html과 동일) ---------- */
+/* ---------- footer ---------- */
 footer.site{padding:0 0 var(--sp7)}
 footer.site .bar{background:var(--card);border-radius:22px;box-shadow:0 2px 10px rgba(67,47,46,.05);display:flex;align-items:center;justify-content:space-between;gap:var(--sp3);padding:var(--sp4) var(--sp5)}
 .fbrand{font-size:14px;font-weight:800}
@@ -114,14 +119,13 @@ footer.site nav a:hover{color:var(--accent)}
   .hero-meta{margin-top:var(--sp4)}
   .b-half,.b-third{grid-column:1/-1}
   .chip{grid-column:span 6}
-  .b-goal{flex-direction:column;align-items:flex-start}
   footer.site .bar{flex-direction:column;align-items:flex-start}
 }
 @media(max-width:600px){
   .hero-copy .cta-row{flex-direction:column;align-items:flex-start}
   .chip{grid-column:1/-1}
   .card{padding:var(--sp4)}
-  .swatches{grid-template-columns:1fr}
+  .swatches,.refs{grid-template-columns:1fr}
   .sw{min-height:90px}
   .feat{grid-template-columns:1fr auto;gap:6px var(--sp3)}
   .feat .fdesc{grid-column:1/-1;grid-row:2}
@@ -134,28 +138,28 @@ footer.site nav a:hover{color:var(--accent)}
 
 <header class="site">
   <div class="shell">
-    <a href="index.html" class="logo">정재은</a>
+    <a href="#top" class="logo">정재은</a>
     <nav class="main">
-      <a href="index.html#about">소개</a>
-      <a href="index.html#skill">스킬</a>
-      <a href="index.html#project">포트폴리오</a>
-      <a href="index.html#contact">문의</a>
-      <a href="portfolio-plan.html" class="on">기획서</a>
+      <a href="#background">기획 배경</a>
+      <a href="#audience">대상</a>
+      <a href="#design">디자인</a>
+      <a href="#features">기능</a>
+      <a href="#screens">화면</a>
     </nav>
-    <a href="index.html" class="cta-btn">사이트 보기 →</a>
+    <a href="#goal" class="cta-btn">목표 보기 →</a>
   </div>
 </header>
 
 <!-- ============ HERO ============ -->
-<section class="hero-text">
+<section class="hero-text" id="top">
   <div class="shell bento">
     <div class="hero-copy reveal">
       <span class="pill">PROJECT PLAN</span>
       <h1>정재은 포트폴리오 <br>기획서</h1>
       <p>아이디어를 사용자 중심의 디자인으로 구체화하는 디자이너의 작업 공간 — 브랜딩부터 모바일 UI까지, 디자인 작업물을 한곳에 모아 소개하는 사이트를 기획합니다.</p>
       <div class="cta-row">
-        <a href="index.html" class="btn btn-dark">완성 사이트 보기 →</a>
-        <a href="#background" class="btn btn-ghost">기획 내용 보기</a>
+        <a href="#background" class="btn btn-dark">기획 내용 보기 →</a>
+        <a href="#design" class="btn btn-ghost">디자인 방향</a>
       </div>
     </div>
     <div class="hero-meta reveal">
@@ -181,7 +185,7 @@ footer.site nav a:hover{color:var(--accent)}
 </section>
 
 <!-- ============ 02 누가 보나요 ============ -->
-<section class="sec alt">
+<section class="sec alt" id="audience">
   <div class="shell">
     <div class="sec-head">
       <span class="pill">02 · AUDIENCE</span>
@@ -201,7 +205,7 @@ footer.site nav a:hover{color:var(--accent)}
 </section>
 
 <!-- ============ 03 디자인 방향 ============ -->
-<section class="sec">
+<section class="sec" id="design">
   <div class="shell">
     <div class="sec-head">
       <span class="pill">03 · DESIGN</span>
@@ -223,6 +227,26 @@ footer.site nav a:hover{color:var(--accent)}
         <div class="val">스타일 A, C "미니멀과 그리드"</div>
         <div class="sub">미니멀한 벤토 그리드 레이아웃</div>
       </div>
+      <div class="card b-refs reveal">
+        <h4>참고 사이트</h4>
+        <div class="refs">
+          <a class="ref" href="https://www.studiokyle.kr/main/index.php" target="_blank" rel="noopener">
+            <div class="rname">StudioKyle</div>
+            <div class="rdesc">패키지·브랜드 디자인 스튜디오. 넉넉한 여백과 제품 사진 그리드, 포인트 컬러 하나로 브랜드 인상을 만드는 구성</div>
+            <span class="arrow-circ">↗</span>
+          </a>
+          <a class="ref" href="https://www.behance.net/gallery/231030725/Rayo-furniture-home-objects-eCommerce-website" target="_blank" rel="noopener">
+            <div class="rname">Rayo</div>
+            <div class="rdesc">가구·홈 오브제 쇼핑몰 웹디자인 (Behance). 제품 사진을 크게 보여주는 차분한 그리드 레이아웃</div>
+            <span class="arrow-circ">↗</span>
+          </a>
+          <a class="ref" href="https://www.insplanet.co.kr/" target="_blank" rel="noopener">
+            <div class="rname">Insplanet</div>
+            <div class="rdesc">디지털 경험 디자인 에이전시. 큰 타이포그래피와 그리드형 작업물 목록, 군더더기 없는 미니멀 구성</div>
+            <span class="arrow-circ">↗</span>
+          </a>
+        </div>
+      </div>
       <div class="card b-color reveal">
         <h4>메인 컬러</h4>
         <div class="swatches">
@@ -236,7 +260,7 @@ footer.site nav a:hover{color:var(--accent)}
 </section>
 
 <!-- ============ 04 핵심 기능 ============ -->
-<section class="sec alt">
+<section class="sec alt" id="features">
   <div class="shell">
     <div class="sec-head">
       <span class="pill">04 · FEATURES</span>
@@ -255,7 +279,7 @@ footer.site nav a:hover{color:var(--accent)}
 </section>
 
 <!-- ============ 05 필요한 화면 ============ -->
-<section class="sec">
+<section class="sec" id="screens">
   <div class="shell">
     <div class="sec-head">
       <span class="pill">05 · SCREENS</span>
@@ -279,7 +303,7 @@ footer.site nav a:hover{color:var(--accent)}
 </section>
 
 <!-- ============ 06 얻고 싶은 것 ============ -->
-<section class="sec" style="padding-top:0">
+<section class="sec" id="goal" style="padding-top:0">
   <div class="shell">
     <div class="sec-head">
       <span class="pill">06 · GOAL</span>
@@ -287,11 +311,8 @@ footer.site nav a:hover{color:var(--accent)}
     </div>
     <div class="bento">
       <div class="card b-goal reveal">
-        <div>
-          <h4>GOAL</h4>
-          <p>직접 기획하고 디자인한 포트폴리오를 실제 웹사이트로 완성해, 필요할 때 링크 하나로 내 작업을 보여줄 수 있게 되는 것이 목표입니다.</p>
-        </div>
-        <a href="index.html" class="btn">완성 사이트 보기 →</a>
+        <h4>GOAL</h4>
+        <p>직접 기획하고 디자인한 포트폴리오를 실제 웹사이트로 완성해, 필요할 때 링크 하나로 내 작업을 보여줄 수 있게 되는 것이 목표입니다.</p>
       </div>
     </div>
   </div>
@@ -301,14 +322,15 @@ footer.site nav a:hover{color:var(--accent)}
   <div class="shell">
     <div class="bar">
       <div style="display:flex;align-items:baseline">
-        <a href="index.html" class="fbrand">정재은</a><span class="frole">Design Portfolio</span>
+        <span class="fbrand">정재은</span><span class="frole">Portfolio Plan</span>
       </div>
       <nav>
-        <a href="index.html#about">소개</a>
-        <a href="index.html#skill">스킬</a>
-        <a href="index.html#project">포트폴리오</a>
-        <a href="index.html#contact">문의</a>
-        <a href="portfolio-plan.html">기획서</a>
+        <a href="#background">기획 배경</a>
+        <a href="#audience">대상</a>
+        <a href="#design">디자인</a>
+        <a href="#features">기능</a>
+        <a href="#screens">화면</a>
+        <a href="#goal">목표</a>
       </nav>
     </div>
   </div>
