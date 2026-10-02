@@ -77,13 +77,11 @@ nav.main a:hover{color:var(--accent)}
 .ref .rname{font-size:16px;font-weight:800}
 .ref .rdesc{font-size:13px;color:var(--ink-soft);line-height:1.55}
 .arrow-circ{position:absolute;right:var(--sp3);bottom:var(--sp3);width:34px;height:34px;border-radius:50%;background:var(--card);display:flex;align-items:center;justify-content:center;font-size:13px}
-.b-scenario{grid-column:span 12}
-.flow{list-style:none}
-.step{display:grid;grid-template-columns:34px 160px 1fr;gap:var(--sp3);align-items:center;padding:var(--sp3) 0;border-bottom:1px solid var(--line)}
-.step:last-child{border-bottom:0}
-.step .no{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:10px;background:var(--sky);color:var(--ink);font-size:13px;font-weight:800}
-.step .st{font-size:16px;font-weight:800}
-.step .sd{font-size:14.5px;color:var(--ink-soft);line-height:1.6}
+.b-scenario{grid-column:span 12;display:flex;align-items:center;justify-content:space-between;gap:var(--sp3);outline:2px solid transparent;outline-offset:-2px;transition:outline-color .2s}
+.b-scenario:hover{outline-color:var(--accent)}
+.b-scenario h4{margin-bottom:var(--sp2)}
+.sc-title{font-size:17px;font-weight:700}
+.sc-go{display:inline-flex;align-items:center;font-size:14px;font-weight:700;padding:14px 24px;border-radius:999px;background:var(--accent);color:var(--on-accent);flex-shrink:0}
 .b-color{grid-column:span 12}
 .swatches{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--gut)}
 .sw{border-radius:16px;padding:var(--sp4) var(--sp3) var(--sp3);min-height:140px;display:flex;flex-direction:column;justify-content:flex-end}
@@ -136,8 +134,7 @@ footer.site nav a:hover{color:var(--accent)}
   .chip{grid-column:1/-1}
   .card{padding:var(--sp4)}
   .swatches,.refs{grid-template-columns:1fr}
-  .step{grid-template-columns:34px 1fr;gap:6px var(--sp3)}
-  .step .sd{grid-column:2}
+  .b-scenario{flex-direction:column;align-items:flex-start}
   .sw{min-height:90px}
   .feat{grid-template-columns:1fr auto;gap:6px var(--sp3)}
   .feat .fdesc{grid-column:1/-1;grid-row:2}
@@ -157,6 +154,7 @@ footer.site nav a:hover{color:var(--accent)}
       <a href="#design">디자인</a>
       <a href="#features">기능</a>
       <a href="#screens">화면</a>
+      <a href="features.html">기능정의서</a>
     </nav>
     <a href="#goal" class="cta-btn">목표 보기 →</a>
   </div>
@@ -264,17 +262,13 @@ footer.site nav a:hover{color:var(--accent)}
           </a>
         </div>
       </div>
-      <div class="card b-scenario reveal" id="scenario">
-        <h4>시나리오</h4>
-        <ol class="flow">
-          <li class="step"><span class="no">01</span><div class="st">첫 화면</div><div class="sd">정재은 포트폴리오 로고와 한 줄 자기소개가 보인다.</div></li>
-          <li class="step"><span class="no">02</span><div class="st">대표 프로젝트</div><div class="sd">스크롤하면 대표 이미지와 간략한 설명이 보이고, 링크 화살표를 누르면 프로젝트 상세 화면으로 이동한다.</div></li>
-          <li class="step"><span class="no">03</span><div class="st">지난 프로젝트</div><div class="sd">메인에는 프로젝트를 최대 5개까지만 보여준다. 그 이상은 ‘지난 프로젝트 보기’를 눌러 카드형 목록 화면에서 본다.</div></li>
-          <li class="step"><span class="no">04</span><div class="st">프로필</div><div class="sd">내 프로필을 자세히 소개하는 영역이 이어진다.</div></li>
-          <li class="step"><span class="no">05</span><div class="st">스킬</div><div class="sd">내가 구현할 수 있는 스킬 목록을 나열한다.</div></li>
-          <li class="step"><span class="no">06</span><div class="st">문의하기</div><div class="sd">방문자가 문의를 남기면 내 메일로 내용이 전달된다.</div></li>
-        </ol>
-      </div>
+      <a class="card b-scenario reveal" id="scenario" href="features.html">
+        <div>
+          <h4>시나리오</h4>
+          <div class="sc-title">화면 흐름과 기능 정의는 기능정의서에서 확인하세요.</div>
+        </div>
+        <span class="sc-go">기능정의서 보기 →</span>
+      </a>
       <div class="card b-color reveal">
         <h4>메인 컬러</h4>
         <div class="swatches">
@@ -362,6 +356,7 @@ footer.site nav a:hover{color:var(--accent)}
         <a href="#features">기능</a>
         <a href="#screens">화면</a>
         <a href="#goal">목표</a>
+        <a href="features.html">기능정의서</a>
       </nav>
     </div>
   </div>
