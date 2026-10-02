@@ -7,9 +7,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
 <style>
 :root{
-  /* 색조합2: Blue #c4dae8 · Butter #feefb8 · Chocopie #432f2e */
-  --bg:#fff7d9; --bg-alt:#e2edf4; --ink:#432f2e; --ink-soft:#6b5856; --line:#efe3bd; --card:#ffffff;
-  --pill-bg:#c4dae8; --sky:#feefb8; --accent:#432f2e; --accent-dark:#2e201f; --on-accent:#feefb8;
+  /* Palette 03: Primary #88B8CE · Secondary #F1C166 · Accent #A13A1E · Dark #542916 · Base #FEFAF0 */
+  --bg:#fefaf0; --bg-alt:#e2eef3; --ink:#542916; --ink-soft:#7a5a4c; --line:#efe4cc; --card:#ffffff;
+  --pill-bg:#88b8ce; --sky:#f1c166; --accent:#a13a1e; --accent-dark:#542916; --on-accent:#fefaf0;
   --content: 1360px; --gut:20px;
   --sp1:5px; --sp2:10px; --sp3:20px; --sp4:30px; --sp5:40px; --sp6:60px; --sp7:80px; --sp8:100px;
 }
@@ -22,13 +22,13 @@ a{color:inherit;text-decoration:none}
 .bento{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gut)}
 
 .pill{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.06em;background:var(--pill-bg);color:var(--ink);padding:8px 18px;border-radius:999px;margin-bottom:var(--sp3)}
-.card{background:var(--card);border-radius:22px;box-shadow:0 2px 10px rgba(67,47,46,.05);padding:var(--sp5)}
+.card{background:var(--card);border-radius:22px;box-shadow:0 2px 10px rgba(84,41,22,.05);padding:var(--sp5)}
 
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease}
 .reveal.in{opacity:1;transform:translateY(0)}
 
 /* ---------- header ---------- */
-header.site{position:sticky;top:0;z-index:50;background:rgba(255,247,217,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.site{position:sticky;top:0;z-index:50;background:rgba(254,250,240,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 header.site .shell{display:flex;align-items:center;justify-content:space-between;height:76px}
 .logo{font-size:18px;font-weight:800;letter-spacing:-.01em}
 nav.main{display:flex;gap:var(--sp5)}
@@ -39,7 +39,7 @@ nav.main a:hover{color:var(--accent)}
 .btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;padding:14px 24px;border-radius:999px}
 .btn-dark{background:var(--accent);color:var(--on-accent)}
 .btn-dark:hover,.cta-btn:hover{background:var(--accent-dark)}
-.btn-ghost{background:#fff;color:var(--ink);box-shadow:0 2px 8px rgba(67,47,46,.06)}
+.btn-ghost{background:#fff;color:var(--ink);box-shadow:0 2px 8px rgba(84,41,22,.06)}
 
 /* ---------- visual (위) + hero text (아래) ---------- */
 .visual{padding:var(--sp6) 0 0}
@@ -83,7 +83,7 @@ nav.main a:hover{color:var(--accent)}
 
 /* ---------- skill ---------- */
 .chip{grid-column:span 4;display:flex;align-items:center;gap:var(--sp3);padding:var(--sp4)}
-.chip .ic{width:52px;height:52px;border-radius:14px;background:var(--sky);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;flex-shrink:0}
+.chip .ic{width:52px;height:52px;border-radius:14px;background:var(--sky);color:var(--ink);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;flex-shrink:0}
 .chip .nm{font-size:16px;font-weight:800;margin-bottom:2px}
 .chip .dsc{font-size:12.5px;color:var(--ink-soft);line-height:1.5}
 
@@ -97,7 +97,7 @@ nav.main a:hover{color:var(--accent)}
 .b-proj p{font-size:13px;color:var(--ink-soft);margin-bottom:var(--sp3)}
 .proj-tags{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:var(--sp3)}
 .tag-row{display:flex;gap:6px}
-.tag-row span{font-size:10.5px;font-weight:700;background:var(--sky);padding:5px 10px;border-radius:999px;color:var(--accent)}
+.tag-row span{font-size:10.5px;font-weight:700;background:var(--sky);padding:5px 10px;border-radius:999px;color:var(--ink)}
 .arrow-circ{width:34px;height:34px;border-radius:50%;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
 
 /* ---------- contact ---------- */
@@ -114,7 +114,7 @@ nav.main a:hover{color:var(--accent)}
 /* ---------- footer ---------- */
 footer.site{padding:0 0 var(--sp7)}
 .sec.alt + footer.site{background:var(--bg-alt)}
-footer.site .bar{background:var(--card);border-radius:22px;box-shadow:0 2px 10px rgba(67,47,46,.05);display:flex;align-items:center;justify-content:space-between;gap:var(--sp3);padding:var(--sp4) var(--sp5)}
+footer.site .bar{background:var(--card);border-radius:22px;box-shadow:0 2px 10px rgba(84,41,22,.05);display:flex;align-items:center;justify-content:space-between;gap:var(--sp3);padding:var(--sp4) var(--sp5)}
 .fbrand{font-size:14px;font-weight:800}
 .frole{font-size:12px;color:var(--ink-soft);margin-left:8px}
 footer.site nav{display:flex;gap:var(--sp4)}
