@@ -7,9 +7,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
 <style>
 :root{
-  /* 색조합2: Blue #c4dae8 · Butter #feefb8 · Chocopie #432f2e */
-  --bg:#fff7d9; --bg-alt:#e2edf4; --ink:#432f2e; --ink-soft:#6b5856; --line:#efe3bd; --card:#ffffff;
-  --pill-bg:#c4dae8; --sky:#feefb8; --accent:#432f2e; --accent-dark:#2e201f; --on-accent:#feefb8;
+  /* Palette 03: Primary #88B8CE · Secondary #F1C166 · Accent #A13A1E · Dark #542916 · Base #FEFAF0 */
+  --bg:#fefaf0; --bg-alt:#e2eef3; --ink:#542916; --ink-soft:#7a5a4c; --line:#efe4cc; --card:#ffffff;
+  --pill-bg:#88b8ce; --sky:#f1c166; --accent:#a13a1e; --accent-dark:#542916; --on-accent:#fefaf0;
   --content: 1360px; --gut:20px;
   --sp1:5px; --sp2:10px; --sp3:20px; --sp4:30px; --sp5:40px; --sp6:60px; --sp7:80px; --sp8:100px;
 }
@@ -21,14 +21,14 @@ a{color:inherit;text-decoration:none}
 .bento{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gut)}
 
 .pill{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.06em;background:var(--pill-bg);color:var(--ink);padding:8px 18px;border-radius:999px;margin-bottom:var(--sp3)}
-.card{background:var(--card);border-radius:22px;box-shadow:0 2px 10px rgba(67,47,46,.05);padding:var(--sp5)}
+.card{background:var(--card);border-radius:22px;box-shadow:0 2px 10px rgba(84,41,22,.05);padding:var(--sp5)}
 .card h4{font-size:12px;font-weight:800;letter-spacing:.08em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:var(--sp3)}
 
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease}
 .reveal.in{opacity:1;transform:translateY(0)}
 
 /* ---------- header ---------- */
-header.site{position:sticky;top:0;z-index:50;background:rgba(255,247,217,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.site{position:sticky;top:0;z-index:50;background:rgba(254,250,240,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 header.site .shell{display:flex;align-items:center;justify-content:space-between;height:76px}
 .logo{font-size:18px;font-weight:800;letter-spacing:-.01em}
 nav.main{display:flex;gap:var(--sp5)}
@@ -39,7 +39,7 @@ nav.main a:hover{color:var(--accent)}
 .btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;padding:14px 24px;border-radius:999px}
 .btn-dark{background:var(--accent);color:var(--on-accent)}
 .btn-dark:hover,.cta-btn:hover{background:var(--accent-dark)}
-.btn-ghost{background:#fff;color:var(--ink);box-shadow:0 2px 8px rgba(67,47,46,.06)}
+.btn-ghost{background:#fff;color:var(--ink);box-shadow:0 2px 8px rgba(84,41,22,.06)}
 
 /* ---------- hero ---------- */
 .hero-text{padding:var(--sp7) 0 var(--sp6)}
@@ -78,7 +78,7 @@ nav.main a:hover{color:var(--accent)}
 .ref .rdesc{font-size:13px;color:var(--ink-soft);line-height:1.55}
 .arrow-circ{position:absolute;right:var(--sp3);bottom:var(--sp3);width:34px;height:34px;border-radius:50%;background:var(--card);display:flex;align-items:center;justify-content:center;font-size:13px}
 .b-color{grid-column:span 12}
-.swatches{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gut)}
+.swatches{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--gut)}
 .sw{border-radius:16px;padding:var(--sp4) var(--sp3) var(--sp3);min-height:140px;display:flex;flex-direction:column;justify-content:flex-end}
 .sw b{font-size:18px;font-weight:800}
 .sw span{font-size:13px;font-weight:600;opacity:.8}
@@ -91,11 +91,11 @@ nav.main a:hover{color:var(--accent)}
 .feat .fdesc{font-size:14.5px;color:var(--ink-soft)}
 .prio{display:inline-block;font-size:11px;font-weight:800;padding:5px 12px;border-radius:999px;white-space:nowrap}
 .prio.high{background:var(--accent);color:var(--on-accent)}
-.prio.mid{background:var(--sky);color:var(--accent)}
+.prio.mid{background:var(--sky);color:var(--ink)}
 
 /* 05 필요한 화면 */
 .chip{grid-column:span 4;display:flex;align-items:center;gap:var(--sp3);padding:var(--sp4)}
-.chip .ic{width:52px;height:52px;border-radius:14px;background:var(--sky);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;flex-shrink:0}
+.chip .ic{width:52px;height:52px;border-radius:14px;background:var(--sky);color:var(--ink);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;flex-shrink:0}
 .chip .nm{font-size:16px;font-weight:800;margin-bottom:2px}
 .chip .dsc{font-size:12.5px;color:var(--ink-soft);line-height:1.5}
 
@@ -106,7 +106,7 @@ nav.main a:hover{color:var(--accent)}
 
 /* ---------- footer ---------- */
 footer.site{padding:0 0 var(--sp7)}
-footer.site .bar{background:var(--card);border-radius:22px;box-shadow:0 2px 10px rgba(67,47,46,.05);display:flex;align-items:center;justify-content:space-between;gap:var(--sp3);padding:var(--sp4) var(--sp5)}
+footer.site .bar{background:var(--card);border-radius:22px;box-shadow:0 2px 10px rgba(84,41,22,.05);display:flex;align-items:center;justify-content:space-between;gap:var(--sp3);padding:var(--sp4) var(--sp5)}
 .fbrand{font-size:14px;font-weight:800}
 .frole{font-size:12px;color:var(--ink-soft);margin-left:8px}
 footer.site nav{display:flex;gap:var(--sp4)}
@@ -250,9 +250,11 @@ footer.site nav a:hover{color:var(--accent)}
       <div class="card b-color reveal">
         <h4>메인 컬러</h4>
         <div class="swatches">
-          <div class="sw" style="background:#432f2e;color:#feefb8"><b>Chocopie</b><span>#432f2e</span></div>
-          <div class="sw" style="background:#feefb8;color:#432f2e"><b>Butter</b><span>#feefb8</span></div>
-          <div class="sw" style="background:#c4dae8;color:#432f2e"><b>Blue</b><span>#c4dae8</span></div>
+          <div class="sw" style="background:#88b8ce;color:#542916"><b>Bleu Porcelaine</b><span>#88B8CE · Primary</span></div>
+          <div class="sw" style="background:#f1c166;color:#542916"><b>Miel Doré</b><span>#F1C166 · Secondary</span></div>
+          <div class="sw" style="background:#a13a1e;color:#fefaf0"><b>Terre Cuite</b><span>#A13A1E · Accent</span></div>
+          <div class="sw" style="background:#542916;color:#fefaf0"><b>Espresso</b><span>#542916 · Dark</span></div>
+          <div class="sw" style="background:#fefaf0;color:#542916;box-shadow:inset 0 0 0 1px var(--line)"><b>Nuage de Lait</b><span>#FEFAF0 · Base</span></div>
         </div>
       </div>
     </div>
