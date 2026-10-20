@@ -6,7 +6,7 @@
 
 ## 파일 구조
 
-- `index.html` — 메인 페이지 (인트로 → Who am I → Works → Contact → 이미지 푸터)
+- `index.html` — 메인 페이지 (인트로 → Who am I → Works → Notes → Contact → 이미지 푸터)
 - `projects.html` — 전체 작업물 목록 (분야 필터 · 6개씩 더 보기). 프로젝트 데이터는 파일 안 `PROJECTS` 배열
 - `design-style.md` — 현재 디자인 기준: 색상·글꼴·간격·레이아웃 규칙, 체크리스트 (수정 전 반드시 확인)
 - `포트폴리오_기획서_기능정의서_수정사항2.md` — 기획·기능 기준 문서 (가장 최신)
@@ -37,7 +37,7 @@
 - 참고 코드: index.html — 화면을 만들거나 고칠 때 design-style.md뿐 아니라 이 파일도 직접 열어서 실제 코드를 참고할 것
 - 참고 사이트: insplanet(구조·레이아웃·인트로), studiokyle(미니멀 분위기·전체 작업물 목록)
 - 인트로 문구: `Portfolio` / `Designing ideas into experiences.` / `UI/UX · WEB · AI VISUAL · 3D`
-- 핵심 연출: 섹션 제목(Who am I·Works·Contact)이 크게 나타났다가 스크롤에 따라 작아지며 왼쪽 위에 고정되고, 섹션이 끝나면 함께 올라감
+- 핵심 연출: 섹션 제목(Who am I·Works·Notes·Contact)이 크게 나타났다가 스크롤에 따라 작아지며 왼쪽 위에 고정되고, 섹션이 끝나면 함께 올라감
 
 ## 지켜야 할 것
 

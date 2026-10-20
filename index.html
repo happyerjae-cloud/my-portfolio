@@ -44,7 +44,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 /* ---------- header ---------- */
-.site-header{position:fixed;inset:0 0 auto 0;z-index:100;height:var(--header);background:rgba(250,246,237,.88);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.site-header{position:fixed;inset:0 0 auto 0;z-index:100;height:var(--header);background:transparent}
 .site-header .shell{height:100%;display:flex;align-items:center;justify-content:space-between}
 .logo{font-family:var(--f-title);font-size:22px;letter-spacing:-.01em}
 .menu-btn{width:50px;height:50px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px;margin-right:-12px}
@@ -106,9 +106,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .motion .pin-spacer{display:block;height:calc(100vh + var(--hold) - var(--pin-top) - 40px)}
 .motion .pin-fade{opacity:var(--p,0)}
 
-.pin + .pin{border-top:1px solid var(--line)}
-
 /* ---------- Who am I ---------- */
+#about{background:var(--oat);--ink-soft:#54483f;--line:#cbbca4} /* 오트밀 배경 위 보조 글자·구분선은 대비를 위해 더 진하게 */
+#about .level i,#about .level b{background:var(--cream)}
+#about .level i.on,#about .level b.on{background:var(--terra)}
+#about .profile-img{background:var(--cream)}
 .profile-img{margin-top:var(--sp3);width:min(100%,320px);aspect-ratio:3/4;max-height:calc(100vh - var(--pin-top) - 140px);border-radius:var(--r);overflow:hidden;background:var(--oat)}
 .profile-img img{width:100%;height:100%;object-fit:cover}
 .block+.block{margin-top:var(--sp6)}
@@ -137,9 +139,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .skills b{font-weight:500;color:var(--ink)}
 
 /* ---------- Works ---------- */
-#works{background:var(--oat);--ink-soft:#54483f;border-top:0} /* 오트밀 배경 위 보조 글자는 대비를 위해 더 진하게 */
-#works + .pin{border-top:0}
-#works .tags li{background:var(--cream)}
 .works-meta{margin-top:var(--sp2);font-size:13px;color:var(--ink-soft);letter-spacing:.06em}
 .project+.project{margin-top:var(--sp8)}
 .project h3{font-size:20px;font-weight:500;margin-bottom:var(--sp2)}
@@ -155,6 +154,21 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .more-link span{color:var(--terra)}
 .more-link:hover{color:var(--terra)}
 .works-more{margin-top:var(--sp8);text-align:center}
+
+/* ---------- Notes ---------- */
+#notes{background:var(--oat);--ink-soft:#54483f;--line:#cbbca4} /* 오트밀 배경 위 보조 글자·구분선은 대비를 위해 더 진하게 */
+#notes .note-cat{background:var(--cream)}
+.notes-meta{margin-top:var(--sp2);font-size:13px;color:var(--ink-soft);letter-spacing:.06em}
+.notes-intro{font-size:15px;color:var(--ink-soft);margin-bottom:var(--sp3)}
+.note-list{list-style:none;border-top:1px solid var(--ink)}
+.note a{display:grid;grid-template-columns:110px 1fr;gap:var(--sp3);align-items:start;padding:var(--sp3) 0;border-bottom:1px solid var(--line)}
+.note-date{font-size:14px;font-weight:500;color:var(--ink-soft);padding-top:3px}
+.note-cat{display:inline-block;font-size:12px;font-weight:500;padding:4px 12px;border-radius:999px;background:var(--oat);margin-bottom:var(--sp1)}
+.note h3{font-size:18px;font-weight:500;line-height:1.5}
+.note p{margin-top:6px;font-size:14px;color:var(--ink-soft);display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+.note a:hover h3{color:var(--terra)}
+.notes-empty{padding:var(--sp6) 0;text-align:center;color:var(--ink-soft);border-bottom:1px solid var(--line)}
+.notes-more{margin-top:var(--sp6);text-align:center}
 
 /* ---------- Contact ---------- */
 .contact-note{font-size:15px;color:var(--ink-soft);margin-bottom:var(--sp4)}
@@ -218,6 +232,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .form-actions{justify-content:stretch}
   .form-actions .btn{width:100%}
   .contact-alt{text-align:left}
+  .note a{grid-template-columns:1fr;gap:6px var(--sp2)}
+  .note-date{grid-column:1/-1;padding-top:0;font-size:13px}
   .site-footer{height:50vh;min-height:320px}
 }
 </style>
@@ -246,6 +262,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     <ul>
       <li><a href="#about">Who am I <small>소개</small></a></li>
       <li><a href="#works">Works <small>작업물</small></a></li>
+      <li><a href="#notes">Notes <small>기록</small></a></li>
       <li><a href="#contact">Contact <small>문의</small></a></li>
     </ul>
   </div>
@@ -336,7 +353,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
         <p>동네 로스터리 카페의 로고, 컬러, 패키지, 메뉴판까지 하나의 톤으로 정리한 브랜딩 프로젝트입니다. 따뜻하고 편안한 공간의 인상을 그래픽으로 옮겼습니다.</p>
         <div class="p-foot">
           <ul class="tags"><li>BRANDING</li><li>GRAPHIC</li><li>PACKAGE</li><li>AI VISUAL</li></ul>
-          <a href="#" class="more-link">자세히 보기 <span aria-hidden="true">→</span></a>
+          <a href="#" class="more-link">자세히 보기</a>
         </div>
       </article>
 
@@ -346,7 +363,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
         <p>매장 대기 없이 미리 주문하고 픽업하는 흐름을 설계했습니다. 메뉴 탐색부터 결제까지 단계를 줄이는 데 집중했습니다.</p>
         <div class="p-foot">
           <ul class="tags"><li>UI/UX</li><li>MOBILE</li><li>PROTOTYPE</li></ul>
-          <a href="#" class="more-link">자세히 보기 <span aria-hidden="true">→</span></a>
+          <a href="#" class="more-link">자세히 보기</a>
         </div>
       </article>
 
@@ -356,12 +373,33 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
         <p>오래된 홈페이지를 반응형으로 다시 설계하고 직접 퍼블리싱했습니다. 3D 비주얼로 메인 화면의 인상을 새롭게 만들었습니다.</p>
         <div class="p-foot">
           <ul class="tags"><li>WEB</li><li>UI/UX</li><li>3D</li></ul>
-          <a href="#" class="more-link">자세히 보기 <span aria-hidden="true">→</span></a>
+          <a href="#" class="more-link">자세히 보기</a>
         </div>
       </article>
 
       <div class="works-more">
-        <a href="projects.html" class="more-link">지난 프로젝트 더보기 <span aria-hidden="true">→</span></a>
+        <a href="projects.html" class="more-link">지난 프로젝트 더보기</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Notes (게시판) -->
+<section class="pin" id="notes" aria-labelledby="notes-title">
+  <div class="shell pin-grid">
+    <div class="pin-aside">
+      <h2 class="pin-title" id="notes-title">Notes</h2>
+      <p class="notes-meta pin-fade">Records &amp; Thoughts</p>
+    </div>
+    <div class="pin-body">
+      <div class="pin-spacer" aria-hidden="true"></div>
+
+      <p class="notes-intro">작업하면서 배운 것과 생각을 기록합니다.</p>
+      <ul class="note-list" id="note-list"></ul>
+      <p class="notes-empty" id="notes-empty" hidden>아직 작성된 글이 없습니다.</p>
+      <!-- TODO: 게시판 목록 페이지를 만들면 hidden을 지우고 주소 연결 -->
+      <div class="notes-more" hidden>
+        <a href="#" class="more-link">전체 글 보기</a>
       </div>
     </div>
   </div>
@@ -402,7 +440,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
         </div>
         <div class="form-actions">
           <span class="form-status" id="form-status" aria-live="polite"></span>
-          <button type="submit" class="btn">메일보내기 <span aria-hidden="true">→</span></button>
+          <button type="submit" class="btn">메일보내기</button>
         </div>
       </form>
       <p class="contact-alt">메일 앱이 열리지 않으면 <a href="mailto:raspberry8437@gmail.com">raspberry8437@gmail.com</a> 으로 직접 보내주세요.</p>
@@ -459,6 +497,27 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     if(e.key === 'Escape' && menu.classList.contains('open')) setMenu(false);
   });
 
+  /* ---- Notes 게시판 ----
+     TODO: 게시판(예: Supabase)을 연결하면 NOTES 대신 불러온 글 목록을 renderNotes()에 넘겨주세요.
+     글 하나의 형태: { date:'2026.10.17', cat:'회고', title:'제목', excerpt:'요약', url:'상세 주소' } */
+  const NOTES = [
+    { date:'2026.10.17', cat:'회고',   title:'포트폴리오 디자인을 미니멀 방향으로 바꾼 이유', excerpt:'카드형 레이아웃에서 큰 타이포 중심으로 바꾸면서 고민한 것들', url:'' },
+    { date:'2026.10.10', cat:'정리',   title:'스크롤에 따라 작아지는 섹션 제목 만들기',     excerpt:'position: sticky와 스크롤 진행률로 제목 전환을 구현한 과정', url:'' },
+    { date:'2026.09.28', cat:'작업기', title:'카페 브랜딩 프로젝트 컬러 시스템 정리',       excerpt:'밀크 크림과 테라코타를 중심으로 팔레트를 정한 기준', url:'' },
+  ];
+  const MAX_NOTES = 5; // 메인에 보여줄 최대 글 수
+  const escHTML = v => String(v).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  function renderNotes(list){
+    const ul = document.getElementById('note-list');
+    ul.innerHTML = list.slice(0, MAX_NOTES).map(n => `
+      <li class="note"><a href="${escHTML(n.url || '#notes')}">
+        <span class="note-date">${escHTML(n.date)}</span>
+        <div><span class="note-cat">${escHTML(n.cat)}</span><h3>${escHTML(n.title)}</h3>${n.excerpt ? `<p>${escHTML(n.excerpt)}</p>` : ''}</div>
+      </a></li>`).join('');
+    document.getElementById('notes-empty').hidden = list.length > 0;
+    if(root.classList.contains('motion')){ measure(); update(); }
+  }
+
   /* ---- 섹션 제목: 크게 → 작아지며 고정 ---- */
   const pins = [...document.querySelectorAll('.pin')];
   const HOLD = 0.5; // 화면 높이의 50% 만큼 제목이 크게 머문 뒤 작아짐 (CSS --hold와 같은 값)
@@ -509,6 +568,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   motionMQ.addEventListener('change', applyMode);
   document.fonts && document.fonts.ready.then(()=>{ if(root.classList.contains('motion')){ measure(); update(); } });
   applyMode();
+  renderNotes(NOTES);
 
   /* ---- 문의 폼 ---- */
   const form = document.getElementById('contact-form');

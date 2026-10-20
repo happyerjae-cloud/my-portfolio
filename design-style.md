@@ -28,7 +28,7 @@
 | 용도 | 글꼴 | 굵기 |
 | --- | --- | --- |
 | 본문·메뉴 설명·버튼·폼 | 에스코어드림 (`'Escoredream'`) | 400, 500 |
-| 로고·인트로 Portfolio·섹션 제목(Who am I·Works·Contact)·메뉴 항목 | 영도체 (`'Yeongdo'`) | 400 |
+| 로고·인트로 Portfolio·섹션 제목(Who am I·Works·Notes·Contact)·메뉴 항목 | 영도체 (`'Yeongdo'`) | 400 |
 
 ```css
 @font-face{font-family:'Escoredream';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff');font-weight:400;font-display:swap}
@@ -37,14 +37,15 @@
 ```
 
 ## 페이지 구성 (메인 = 한 페이지)
-인트로 → Who am I → Works → Contact → 이미지 푸터
+인트로 → Who am I → Works → Notes → Contact → 이미지 푸터
 
 | 영역 | 레이아웃 |
 | --- | --- |
 | 헤더 | 왼쪽 로고, 오른쪽 햄버거 메뉴. 메뉴가 열리면 같은 자리에 X 닫기 버튼(Esc로도 닫힘). **PC·태블릿·모바일 모두 햄버거** (닫힌 상태에 메뉴 항목 나열 안 함) |
 | 인트로 | 풀스크린. 왼쪽 아래 큰 `Portfolio` + 한 줄 소개, 오른쪽 위 `Designing ideas into / experiences.`(experiences 테라코타) + `UI/UX · WEB · AI VISUAL · 3D`, 오른쪽 끝 세로 SCROLL |
-| Who am I | 좌측: 제목 + 프로필 사진 / 우측: Experience · Education · Tool(단색 아이콘 + 5단계 숙련도 + `4/5` 텍스트) · Skill(실제로 할 수 있는 업무 설명) |
+| Who am I | **오트밀 배경** (보조 글자 `#54483f`로 진하게). 좌측: 제목 + 프로필 사진 / 우측: Experience · Education · Tool(단색 아이콘 + 5단계 숙련도 + `4/5` 텍스트) · Skill(실제로 할 수 있는 업무 설명) |
 | Works | 좌측: 제목 고정 / 우측: 프로젝트 세로 나열 (프로젝트명 → 16:9 이미지 → 2줄 설명 → 알약 태그 → `자세히 보기`). **메인은 최대 4개**, 프로젝트 아래 `지난 프로젝트 더보기` → `projects.html` |
+| Notes | 좌측: 제목 고정 / 우측: 게시판 글 목록 (날짜 · 분류 알약 · 제목 · 한 줄 요약 · → 화살표). 메인은 최대 5개. 데이터는 `index.html`의 `NOTES` 배열 → 게시판 연결 시 `renderNotes()`에 불러온 글 목록을 넘김 |
 | 전체 작업물 (`projects.html`) | 큰 `Works` 제목 + 총 개수, 분야 필터(전체·UI/UX·WEB·BRANDING·AI VISUAL·3D), 3열(태블릿 2열·모바일 1열) 카드: 4:3 이미지 → 분야·연도 → 프로젝트명 → 2줄 설명. 처음 6개, `프로젝트 더 보기`로 6개씩 추가. 상세에서 돌아오면 필터·개수·스크롤 위치 복원 |
 | Contact | 좌측: 제목 고정 / 우측: 폼 — 기업명(선택)·성함(필수) 한 줄, 이메일(필수), 문의내용(필수), 개인정보 동의(필수), `메일보내기`. 수신 주소 `raspberry8437@gmail.com` |
 | 이미지 푸터 | 큰 배경 이미지 + 아래쪽 어두운 그라데이션 위에 저작권 표기 |
