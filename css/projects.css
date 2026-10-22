@@ -1,0 +1,112 @@
+/* ---------- fonts (기획서 2쪽) ---------- */
+@font-face{font-family:'Escoredream';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff');font-weight:400;font-display:swap}
+@font-face{font-family:'Escoredream';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-5Medium.woff') format('woff');font-weight:500;font-display:swap}
+@font-face{font-family:'Yeongdo';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/2410-1@1.2/Yeongdo-Rg.woff2') format('woff2');font-weight:400;font-display:swap}
+
+:root{
+  --cream:#faf6ed; --terra:#af513d; --oat:#ddd0bb; --ink:#332b27; --apricot:#e9b89a;
+  --ink-soft:#6a5d55; --line:#e6dccb;
+  --f-body:'Escoredream',-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  --f-title:'Yeongdo','Escoredream',-apple-system,'Apple SD Gothic Neo',sans-serif;
+  --sp1:10px; --sp2:20px; --sp3:30px; --sp4:40px; --sp6:60px; --sp8:80px; --sp10:100px;
+  --r:8px; --r-sm:4px;
+  --content:1280px;
+  --header:70px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--f-body);font-weight:400;color:var(--ink);background:var(--cream);line-height:1.7;-webkit-font-smoothing:antialiased;word-break:keep-all;overflow-wrap:break-word}
+body.menu-open{overflow:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--terra);outline-offset:3px}
+.shell{max-width:var(--content);margin:0 auto;padding:0 var(--sp4)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- header (index.html과 동일) ---------- */
+.site-header{position:fixed;inset:0 0 auto 0;z-index:100;height:var(--header);background:transparent;transition:background-color .3s ease}
+.site-header .shell{height:100%;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--f-title);font-size:22px;letter-spacing:-.01em}
+.menu-btn{width:50px;height:50px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px;margin-right:-12px}
+.menu-btn span{display:block;width:24px;height:2px;background:var(--ink);border-radius:2px}
+
+/* ---------- menu overlay (index.html과 동일) ---------- */
+.menu{position:fixed;inset:0;z-index:110;background:var(--oat);display:flex;align-items:center;visibility:hidden;opacity:0;transition:opacity .35s ease,visibility 0s linear .35s}
+.menu.open{visibility:visible;opacity:1;transition:opacity .35s ease}
+.menu-top{position:absolute;inset:0 0 auto 0;height:var(--header)}
+.menu-top .shell{height:100%;display:flex;align-items:center;justify-content:space-between}
+.menu-close{width:50px;height:50px;margin-right:-12px;position:relative}
+.menu-close span{position:absolute;left:13px;top:24px;width:24px;height:2px;background:var(--ink);border-radius:2px;transition:transform .35s ease}
+.menu-close span:nth-child(1){transform:rotate(45deg)}
+.menu-close span:nth-child(2){transform:rotate(-45deg)}
+.menu-close:hover span{background:var(--terra)}
+.menu.open .menu-close span:nth-child(1){animation:x1 .35s ease}
+.menu.open .menu-close span:nth-child(2){animation:x2 .35s ease}
+@keyframes x1{from{transform:rotate(0)}}
+@keyframes x2{from{transform:rotate(0)}}
+.menu ul{list-style:none}
+.menu li+li{margin-top:var(--sp2)}
+.menu ul a{display:inline-flex;align-items:baseline;gap:var(--sp2);font-family:var(--f-title);font-size:clamp(44px,8vw,96px);line-height:1.1}
+.menu ul a small{font-family:var(--f-body);font-size:14px;color:var(--ink-soft)}
+.menu ul a:hover{color:var(--terra)}
+.menu-foot{position:absolute;left:0;right:0;bottom:var(--sp4);font-size:14px;color:var(--ink-soft)}
+
+/* ---------- page head ---------- */
+.page-head{padding:calc(var(--header) + var(--sp8)) 0 var(--sp6)}
+.page-head .row{display:flex;justify-content:space-between;align-items:flex-end;gap:var(--sp2);flex-wrap:wrap}
+.page-head h1{font-family:var(--f-title);font-weight:400;font-size:clamp(64px,10vw,140px);line-height:1;letter-spacing:-.02em}
+.page-head .sub{font-size:15px;color:var(--ink-soft);text-align:right}
+.page-head .sub b{font-weight:500;color:var(--terra)}
+
+/* ---------- filter ---------- */
+.filter{display:flex;flex-wrap:wrap;gap:var(--sp1);padding:var(--sp2) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);list-style:none}
+.filter button{min-height:40px;padding:0 var(--sp2);border-radius:999px;font-size:14px;font-weight:500;color:var(--ink-soft);transition:background .2s ease,color .2s ease}
+.filter button:hover{color:var(--ink);background:var(--oat)}
+.filter button[aria-pressed="true"]{background:var(--ink);color:var(--cream)}
+.filter .n{font-size:12px;margin-left:4px;opacity:.7}
+
+/* ---------- grid ---------- */
+.list{padding:var(--sp6) 0 var(--sp10)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp6) var(--sp3);list-style:none}
+.card a,.card .inner{display:block}
+.thumb{aspect-ratio:4/3;border-radius:var(--r);overflow:hidden;background:var(--oat)}
+.thumb img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.card a:hover .thumb img{transform:scale(1.04)}
+.card-meta{margin-top:var(--sp2);display:flex;justify-content:space-between;gap:var(--sp1);font-size:13px;color:var(--ink-soft)}
+.card-meta .cat{color:var(--terra);font-weight:500}
+.card h2{margin-top:6px;font-size:18px;font-weight:500;line-height:1.4}
+.card p{margin-top:6px;font-size:14px;color:var(--ink-soft);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card a:hover h2{color:var(--terra)}
+.empty{padding:var(--sp10) 0;text-align:center;color:var(--ink-soft)}
+
+.load-more{margin-top:var(--sp8);text-align:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--sp1);min-height:50px;padding:0 var(--sp4);border-radius:var(--r);background:var(--terra);color:var(--cream);font-size:15px;font-weight:500;transition:background .2s ease}
+.btn:hover{background:#963f2d}
+.list-status{margin-top:var(--sp2);font-size:13px;color:var(--ink-soft)}
+
+/* ---------- image footer (index.html과 동일) ---------- */
+.site-footer{position:relative;height:50vh;min-height:360px;display:flex;align-items:flex-end;color:var(--cream);overflow:hidden}
+.site-footer img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.site-footer::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,rgba(51,43,39,0) 40%,rgba(51,43,39,.75))}
+.site-footer .shell{position:relative;z-index:2;width:100%;padding-bottom:var(--sp4);display:flex;justify-content:space-between;align-items:flex-end;gap:var(--sp2);flex-wrap:wrap}
+.f-logo{font-family:var(--f-title);font-size:clamp(32px,5vw,64px);line-height:1}
+.copy{font-size:13px}
+
+/* ---------- tablet ---------- */
+@media (max-width:1023px){
+  .shell{padding:0 var(--sp3)}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+/* ---------- mobile ---------- */
+@media (max-width:767px){
+  .shell{padding:0 var(--sp2)}
+  .logo{font-size:19px}
+  .page-head{padding-top:calc(var(--header) + var(--sp4))}
+  .page-head .sub{text-align:left}
+  .filter{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .filter::-webkit-scrollbar{display:none}
+  .filter button{white-space:nowrap}
+  .grid{grid-template-columns:1fr;gap:var(--sp4)}
+  .load-more .btn{width:100%}
+  .site-footer{height:40vh;min-height:280px}
+}

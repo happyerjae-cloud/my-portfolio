@@ -1,6 +1,6 @@
 # 디자인 스타일 — 미니멀 · 큰 타이포 · 좌측 제목 + 우측 콘텐츠
 
-기준 문서: `포트폴리오_기획서_기능정의서_수정사항2.md` (2026-10-17), 「포트폴리오 디자인 계획서 수정」 PDF
+기준 문서: `포트폴리오_기획서_기능정의서_수정사항2.md` (2026-10-17), 「포트폴리오 디자인 계획서 수정」 PDF, `포트폴리오_디자인_수정사항.md` (2026-10-20 — 글꼴·색상·인트로)
 실제 코드: `index.html` — 수정 전에 이 파일도 함께 열어볼 것
 
 ## 기본 설정
@@ -12,43 +12,48 @@
 
 ## 색상 (변수로 선언)
 ```
---cream:#faf6ed     밀크 크림 — 전체 배경
---terra:#af513d     테라코타 — 주요 버튼·강조 단어·화살표
+--cream:#faf6ed     크림 — 전체 배경
+--terra:#af513d     테라코타 포인트 — 강조 단어·링크·버튼 (제한적으로 반복)
 --oat:#ddd0bb       오트밀 — 카드·섹션 배경, 태그 배경
---ink:#332b27       에스프레소 — 제목·본문
+--ink:#332b27       주요 글자 — 타이틀·이름·주요 제목·본문
 --apricot:#e9b89a   애프리콧 — 작은 장식·그래픽
---ink-soft:#6a5d55  보조 글자 (에스프레소를 옅게)
+--ink-soft:#6a5d55  보조 글자 — 설명·작업 분야·부가 정보 (오트밀 배경 위에서는 #54483f)
 --line:#e6dccb      구분선
 ```
 - 애프리콧(장식색)은 본문 글자색으로 쓰지 않는다.
-- 테라코타 버튼 위 글자는 밀크 크림(대비 약 4.8:1).
+- 포인트 버튼 위 글자는 배경색(대비 약 4.8:1 — 15px 본문 기준 4.5:1 통과).
+- 팔레트 외에 쓰는 값: 버튼 hover `#963f2d`, 푸터 사진 그라데이션 `rgba(51,43,39,…)`(주요 글자색 반투명).
+- `css/style.css`(index)와 `css/projects.css`(전체 작업물)의 색상 변수는 똑같이 유지한다.
 - 작업물 이미지의 원래 색은 그대로 둔다.
 
 ## 글꼴
 | 용도 | 글꼴 | 굵기 |
 | --- | --- | --- |
-| 본문·메뉴 설명·버튼·폼 | 에스코어드림 (`'Escoredream'`) | 400, 500 |
-| 로고·인트로 Portfolio·섹션 제목(Who am I·Works·Notes·Contact)·메뉴 항목 | 영도체 (`'Yeongdo'`) | 400 |
+| 한글·본문·메뉴 설명·버튼·폼 | 에스코어드림 (`'Escoredream'`, 변수 `--f-body`) | 400, 500 |
+| 로고·인트로 큰 제목·섹션 제목(Who am I·Works·Notes·Contact)·메뉴 항목·푸터 로고·전체 작업물 페이지 제목 | 영도 (`'Yeongdo'`, 변수 `--f-title`) | 400 |
 
 ```css
 @font-face{font-family:'Escoredream';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff');font-weight:400;font-display:swap}
 @font-face{font-family:'Escoredream';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-5Medium.woff') format('woff');font-weight:500;font-display:swap}
 @font-face{font-family:'Yeongdo';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/2410-1@1.2/Yeongdo-Rg.woff2') format('woff2');font-weight:400;font-display:swap}
 ```
+- 영도는 400 굵기 파일만 있으므로 제목류에 `font-weight:500` 이상을 주지 않는다(브라우저가 억지로 두껍게 그림).
+- 큰 제목 자간: 인트로 제목·전체 작업물 페이지 제목 `-0.02em`, 섹션 제목·로고 `-0.01em`.
+- `index.html`(`css/style.css`)과 `projects.html`(`css/projects.css`)의 글꼴 선언은 똑같이 유지한다.
 
 ## 페이지 구성 (메인 = 한 페이지)
 인트로 → Who am I → Works → Notes → Contact → 이미지 푸터
 
 | 영역 | 레이아웃 |
 | --- | --- |
-| 헤더 | 왼쪽 로고, 오른쪽 햄버거 메뉴. 메뉴가 열리면 같은 자리에 X 닫기 버튼(Esc로도 닫힘). **PC·태블릿·모바일 모두 햄버거** (닫힌 상태에 메뉴 항목 나열 안 함) |
-| 인트로 | 풀스크린. 왼쪽 아래 큰 `Portfolio` + 한 줄 소개, 오른쪽 위 `Designing ideas into / experiences.`(experiences 테라코타) + `UI/UX · WEB · AI VISUAL · 3D`, 오른쪽 끝 세로 SCROLL |
-| Who am I | **오트밀 배경** (보조 글자 `#54483f`로 진하게). 좌측: 제목 + 프로필 사진 / 우측: Experience · Education · Tool(단색 아이콘 + 5단계 숙련도 + `4/5` 텍스트) · Skill(실제로 할 수 있는 업무 설명) |
-| Works | 좌측: 제목 고정 / 우측: 프로젝트 세로 나열 (프로젝트명 → 16:9 이미지 → 2줄 설명 → 알약 태그 → `자세히 보기`). **메인은 최대 4개**, 프로젝트 아래 `지난 프로젝트 더보기` → `projects.html` |
-| Notes | 좌측: 제목 고정 / 우측: 게시판 글 목록 (날짜 · 분류 알약 · 제목 · 한 줄 요약 · → 화살표). 메인은 최대 5개. 데이터는 `index.html`의 `NOTES` 배열 → 게시판 연결 시 `renderNotes()`에 불러온 글 목록을 넘김 |
+| 헤더 | 왼쪽 로고, 오른쪽 햄버거 메뉴. 배경은 바로 아래 섹션의 배경색을 따라 바뀜(크림↔오트밀, 0.3초 전환, 이미지 푸터 위에서는 투명 — `js/script.js` `headerBg()`). 메뉴가 열리면 같은 자리에 X 닫기 버튼(Esc로도 닫힘). **PC·태블릿·모바일 모두 햄버거** (닫힌 상태에 메뉴 항목 나열 안 함) |
+| 인트로 | 풀스크린. 왼쪽 아래 큰 `Portfolio`(영도 400, 84~260px, 자간 -0.02em) → 소개 문장 `새로운 것을 배우고, 배운 것을 제 것으로 만들어가는 정재은 입니다.`(14~17px), 오른쪽 위 `Designing ideas into / experiences.`(20~28px·500, 행간 1.4, experiences 포인트색) + `UI/UX · WEB · AI VISUAL · 3D`(13px), 오른쪽 아래 세로 SCROLL |
+| Who am I | 크림 배경. 좌측: 제목 + 프로필 사진(3:4) / 우측: Experience · Education · Tool(단색 아이콘 + 5단계 숙련도 + `4/5` 텍스트) · Skill(실제로 할 수 있는 업무 설명) |
+| Works | **오트밀 배경** (보조 글자 `#54483f`로 진하게). 좌측: 제목 고정 + `Selected Projects` / 우측: 프로젝트 세로 나열 (프로젝트명 → 16:9 이미지 → 2줄 설명 → 알약 태그 → `자세히 보기`). **메인은 최대 4개**, 프로젝트 아래 `지난 프로젝트 더보기` → `projects.html` |
+| Notes | 크림 배경(Works 오트밀과 번갈아 보이도록). 좌측: 제목 고정 + `Records & Thoughts` / 우측: 게시판 글 목록 (날짜 · 분류 알약 · 제목 · 한 줄 요약). 메인은 최대 5개. 데이터는 `js/script.js`의 `NOTES` 배열 → 게시판 연결 시 `renderNotes()`에 불러온 글 목록을 넘김 |
 | 전체 작업물 (`projects.html`) | 큰 `Works` 제목 + 총 개수, 분야 필터(전체·UI/UX·WEB·BRANDING·AI VISUAL·3D), 3열(태블릿 2열·모바일 1열) 카드: 4:3 이미지 → 분야·연도 → 프로젝트명 → 2줄 설명. 처음 6개, `프로젝트 더 보기`로 6개씩 추가. 상세에서 돌아오면 필터·개수·스크롤 위치 복원 |
 | Contact | 좌측: 제목 고정 / 우측: 폼 — 기업명(선택)·성함(필수) 한 줄, 이메일(필수), 문의내용(필수), 개인정보 동의(필수), `메일보내기`. 수신 주소 `raspberry8437@gmail.com` |
-| 이미지 푸터 | 큰 배경 이미지 + 아래쪽 어두운 그라데이션 위에 저작권 표기 |
+| 이미지 푸터 | 큰 배경 이미지(높이 70vh) + 아래쪽 어두운 그라데이션 위에 왼쪽 큰 로고 `jeongjaeeun`, 오른쪽 저작권 표기 |
 
 ### 섹션 제목 전환 (`.pin`)
 1. 섹션 시작 시 제목이 화면 왼쪽 가운데 높이에 크게 보인다.
@@ -63,7 +68,8 @@
 
 ## 수정 시 지켜야 할 것
 - 색은 위 팔레트 변수만 사용하고, 새 색을 임의로 추가하지 않기
-- 제목류는 영도체, 본문은 에스코어드림 — 두 글꼴 외 다른 글꼴 섞지 않기
+- 제목류는 영도, 한글·본문은 에스코어드림 — 두 글꼴 외 다른 글꼴 섞지 않기
+- 섹션 제목(`.pin-title`)은 `width:fit-content` 유지 — 크게 확대될 때 가로 스크롤이 생기지 않도록
 - 간격은 10px 단위, 모서리는 8px 기본(4px 단위) 유지
 - 한글 줄바꿈 `word-break: keep-all` 유지
 - 섹션은 "좌측 제목 + 우측 콘텐츠" 2단 구조 유지 (모바일은 1열)
