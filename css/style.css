@@ -164,6 +164,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .notes-more{margin-top:var(--sp6);text-align:center}
 
 /* ---------- Contact ---------- */
+#contact{background:var(--oat);--ink-soft:#54483f} /* Works와 같은 오트밀 배경 · 보조 글자 진하게 */
 .contact-note{font-size:15px;color:var(--ink-soft);margin-bottom:var(--sp4)}
 .form-row{display:grid;grid-template-columns:90px 1fr;gap:var(--sp2);align-items:start;margin-bottom:var(--sp2)}
 .form-pair{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp3);margin-bottom:var(--sp2)}
