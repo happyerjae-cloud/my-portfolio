@@ -1,13 +1,13 @@
 /* ---------- fonts (기획서 2쪽) ---------- */
 @font-face{font-family:'Escoredream';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff');font-weight:400;font-display:swap}
 @font-face{font-family:'Escoredream';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-5Medium.woff') format('woff');font-weight:500;font-display:swap}
-@font-face{font-family:'Yeongdo';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/2410-1@1.2/Yeongdo-Rg.woff2') format('woff2');font-weight:400;font-display:swap}
+/* 타이틀: Cormorant Garamond 600 — Google Fonts <link>로 불러옴 (projects.html head) */
 
 :root{
   --cream:#faf6ed; --terra:#af513d; --oat:#ddd0bb; --ink:#332b27; --apricot:#e9b89a;
   --ink-soft:#6a5d55; --line:#e6dccb;
   --f-body:'Escoredream',-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
-  --f-title:'Yeongdo','Escoredream',-apple-system,'Apple SD Gothic Neo',sans-serif;
+  --f-title:'Cormorant Garamond','Escoredream',-apple-system,'Apple SD Gothic Neo',sans-serif;
   --sp1:10px; --sp2:20px; --sp3:30px; --sp4:40px; --sp6:60px; --sp8:80px; --sp10:100px;
   --r:8px; --r-sm:4px;
   --content:1280px;
@@ -26,7 +26,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 /* ---------- header (index.html과 동일) ---------- */
 .site-header{position:fixed;inset:0 0 auto 0;z-index:100;height:var(--header);background:transparent;transition:background-color .3s ease}
 .site-header .shell{height:100%;display:flex;align-items:center;justify-content:space-between}
-.logo{font-family:var(--f-title);font-size:22px;letter-spacing:-.01em}
+.logo{font-family:var(--f-title);font-size:22px;font-weight:600;letter-spacing:.01em}
 .menu-btn{width:50px;height:50px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px;margin-right:-12px}
 .menu-btn span{display:block;width:24px;height:2px;background:var(--ink);border-radius:2px}
 
@@ -46,7 +46,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @keyframes x2{from{transform:rotate(0)}}
 .menu ul{list-style:none}
 .menu li+li{margin-top:var(--sp2)}
-.menu ul a{display:inline-flex;align-items:baseline;gap:var(--sp2);font-family:var(--f-title);font-size:clamp(44px,8vw,96px);line-height:1.1}
+.menu ul a{display:inline-flex;align-items:baseline;gap:var(--sp2);font-family:var(--f-title);font-size:clamp(44px,8vw,96px);font-weight:600;letter-spacing:-.005em;line-height:1.1}
 .menu ul a small{font-family:var(--f-body);font-size:14px;color:var(--ink-soft)}
 .menu ul a:hover{color:var(--terra)}
 .menu-foot{position:absolute;left:0;right:0;bottom:var(--sp4);font-size:14px;color:var(--ink-soft)}
@@ -54,7 +54,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 /* ---------- page head ---------- */
 .page-head{padding:calc(var(--header) + var(--sp8)) 0 var(--sp6)}
 .page-head .row{display:flex;justify-content:space-between;align-items:flex-end;gap:var(--sp2);flex-wrap:wrap}
-.page-head h1{font-family:var(--f-title);font-weight:400;font-size:clamp(64px,10vw,140px);line-height:1;letter-spacing:-.02em}
+.page-head h1{font-family:var(--f-title);font-weight:600;font-size:clamp(64px,10vw,140px);line-height:1;letter-spacing:-.01em}
 .page-head .sub{font-size:15px;color:var(--ink-soft);text-align:right}
 .page-head .sub b{font-weight:500;color:var(--terra)}
 
@@ -89,7 +89,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .site-footer img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .site-footer::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,rgba(51,43,39,0) 40%,rgba(51,43,39,.75))}
 .site-footer .shell{position:relative;z-index:2;width:100%;padding-bottom:var(--sp4);display:flex;justify-content:space-between;align-items:flex-end;gap:var(--sp2);flex-wrap:wrap}
-.f-logo{font-family:var(--f-title);font-size:clamp(32px,5vw,64px);line-height:1}
+.f-logo{font-family:var(--f-title);font-size:clamp(32px,5vw,64px);line-height:1;font-weight:600;letter-spacing:0}
 .copy{font-size:13px}
 
 /* ---------- tablet ---------- */

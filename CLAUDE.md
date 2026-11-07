@@ -20,7 +20,7 @@
 ## 규칙
 
 - 사진은 `img/파일명` 상대경로로 참조합니다. 사진을 바꿀 때는 이 폴더 안 파일을 같은 이름으로 덮어씁니다.
-- 글꼴은 두 가지만 사용합니다: 로고·타이틀 영도(Yeongdo, 400), 한글·본문 에스코어드림(Escoredream, 400·500). (2026-10-22 Switzer·Pretendard에서 되돌림)
+- 글꼴은 두 가지만 사용합니다: 로고·타이틀 코모란트 가라몬드(Cormorant Garamond, 600 · Google Fonts `<link>`), 한글·본문 에스코어드림(Escoredream, 400·500). (2026-11-05 영도에서 변경)
 - 색상은 팔레트만 사용합니다: 배경 `#FAF6ED` · 포인트 `#AF513D` · 오트밀 `#DDD0BB` · 주요 글자 `#332B27` · 보조 글자 `#6A5D55` · 애프리콧 `#E9B89A`. (2026-10-22 기획서 팔레트로 되돌림)
 - 간격은 10px 단위, 모서리는 8px 기본(필요 시 4px 단위)입니다.
 - 한글 줄바꿈 시 단어 중간이 잘리지 않도록 `word-break: keep-all`을 유지합니다.
@@ -37,7 +37,7 @@
 - 참고 문서: design-style.md (색상·글꼴·레이아웃 규칙 요약본)
 - 참고 코드: index.html — 화면을 만들거나 고칠 때 design-style.md뿐 아니라 이 파일도 직접 열어서 실제 코드를 참고할 것
 - 참고 사이트: insplanet(구조·레이아웃·인트로), studiokyle(미니멀 분위기·전체 작업물 목록)
-- 인트로 문구: `Portfolio` / `정재은 JEONG JAEEUN` / `배운 것을 나만의 시선으로 풀어내는 디자이너 정재은입니다.` / `Designing ideas into experiences.` / `UI/UX · WEB · AI VISUAL · 3D`
+- 인트로 문구: `Portfolio` / `정재은 JEONG JAEEUN` / `배운 것을 나만의 시선으로 풀어내는 디자이너 정재은입니다.` / `Designing ideas into experiences.` / `UI/UX · WEB · AI VISUAL`
 - 핵심 연출: 섹션 제목(Who am I·Works·Notes·Contact)이 크게 나타났다가 스크롤에 따라 작아지며 왼쪽 위에 고정되고, 섹션이 끝나면 함께 올라감
 
 ## 지켜야 할 것

@@ -15,7 +15,7 @@
       if(i<5) dots += `<b class="${i<lv?'on':''}"></b>`;
     }
     t.insertAdjacentHTML('beforeend',
-      `<span class="level" aria-hidden="true">${dots}</span><span class="tool-lv"><span class="sr-only">숙련도 5단계 중 </span>${lv}/5</span>`);
+      `<span class="level" aria-hidden="true">${dots}</span><span class="tool-lv">${lv}/5</span>`);
   });
 
   /* ---- 햄버거 메뉴 ---- */
@@ -44,15 +44,16 @@
     const vh = innerHeight;
     const pinTop = parseFloat(getComputedStyle(root).getPropertyValue('--pin-top'));
     const big = Math.min(160, Math.max(80, innerWidth * 0.11));
+    root.style.setProperty('--title-big', big + 'px'); // 제목은 큰 크기로 그리고 scale()로 줄임 → 흐림 없음
     metrics = pins.map(sec=>{
       const title = sec.querySelector('.pin-title');
-      const fs = parseFloat(getComputedStyle(title).fontSize);
-      const h = title.offsetHeight;
-      const S = big / fs;
-      return { sec, title, S,
+      const small = parseFloat(getComputedStyle(title).getPropertyValue('--title-sm'));
+      const h = title.offsetHeight; // 큰 크기 기준 높이
+      return { sec, title,
+        S: small / big, // 다 줄어들었을 때의 배율 (1보다 작음)
         hold: vh * HOLD,
         dist: vh - pinTop - 40,
-        startY: vh/2 - pinTop - (h*S)/2 };
+        startY: vh/2 - pinTop - h/2 };
     });
   }
 
@@ -62,7 +63,7 @@
     metrics.forEach(m=>{
       const top = m.sec.getBoundingClientRect().top;
       const p = ease(Math.min(1, Math.max(0, (-top - m.hold) / m.dist)));
-      const s = m.S + (1 - m.S) * p;
+      const s = 1 + (m.S - 1) * p;
       const ty = m.startY * (1 - p);
       m.title.style.transform = `translateY(${ty}px) scale(${s})`;
       m.sec.style.setProperty('--p', p.toFixed(3));
@@ -135,7 +136,7 @@
   }
   form.addEventListener('submit', e=>{
     e.preventDefault();
-    const name = f('f-name'), email = f('f-email'), msg = f('f-msg'), agree = f('f-agree'), company = f('f-company');
+    const name = f('f-name'), email = f('f-email'), msg = f('f-msg'), agree = f('f-agree');
     const ok = [
       setErr(name, 'e-name', name.value.trim() ? '' : '성함을 입력해주세요.'),
       setErr(email, 'e-email', !email.value.trim() ? '답변 받으실 이메일을 입력해주세요.'
@@ -145,8 +146,8 @@
     ].every(Boolean);
     if(!ok){ form.querySelector('[aria-invalid="true"]').focus(); status.textContent=''; return; }
 
-    const subject = `[포트폴리오 문의] ${company.value.trim() ? company.value.trim() + ' · ' : ''}${name.value.trim()}`;
-    const body = `기업명: ${company.value.trim() || '-'}\n성함: ${name.value.trim()}\n회신 이메일: ${email.value.trim()}\n\n${msg.value.trim()}`;
+    const subject = `[포트폴리오 문의] ${name.value.trim()}`;
+    const body = `성함: ${name.value.trim()}\n회신 이메일: ${email.value.trim()}\n\n${msg.value.trim()}`;
     location.href = `mailto:raspberry8437@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     status.textContent = '메일 앱이 열렸습니다. 메일 앱에서 보내기를 눌러주세요.';
   });

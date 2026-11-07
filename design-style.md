@@ -30,15 +30,14 @@
 | 용도 | 글꼴 | 굵기 |
 | --- | --- | --- |
 | 한글·본문·메뉴 설명·버튼·폼 | 에스코어드림 (`'Escoredream'`, 변수 `--f-body`) | 400, 500 |
-| 로고·인트로 큰 제목·섹션 제목(Who am I·Works·Notes·Contact)·메뉴 항목·푸터 로고·전체 작업물 페이지 제목 | 영도 (`'Yeongdo'`, 변수 `--f-title`) | 400 |
+| 로고·인트로 큰 제목·섹션 제목(Who am I·Works·Notes·Contact)·메뉴 항목·푸터 로고·전체 작업물 페이지 제목 | Cormorant Garamond (`'Cormorant Garamond'`, 변수 `--f-title`) | 600 |
 
 ```css
 @font-face{font-family:'Escoredream';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff');font-weight:400;font-display:swap}
 @font-face{font-family:'Escoredream';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-5Medium.woff') format('woff');font-weight:500;font-display:swap}
-@font-face{font-family:'Yeongdo';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/2410-1@1.2/Yeongdo-Rg.woff2') format('woff2');font-weight:400;font-display:swap}
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&display=swap" rel="stylesheet">  (index.html·projects.html head)
 ```
-- 영도는 400 굵기 파일만 있으므로 제목류에 `font-weight:500` 이상을 주지 않는다(브라우저가 억지로 두껍게 그림).
-- 큰 제목 자간: 인트로 제목·전체 작업물 페이지 제목 `-0.02em`, 섹션 제목·로고 `-0.01em`.
+- Cormorant Garamond는 600 굵기(정체·이탤릭)만 불러오므로 제목류는 `font-weight:600`으로 지정한다. 영문 전용 글꼴이라 한글은 에스코어드림으로 표시된다. 자간: 로고 0.01em · 섹션 제목·푸터 로고 0 · 메뉴 -0.005em · 인트로·목록 페이지 큰 제목 -0.015em/-0.01em.
 - `index.html`(`css/style.css`)과 `projects.html`(`css/projects.css`)의 글꼴 선언은 똑같이 유지한다.
 
 ## 페이지 구성 (메인 = 한 페이지)
@@ -47,12 +46,12 @@
 | 영역 | 레이아웃 |
 | --- | --- |
 | 헤더 | 왼쪽 로고, 오른쪽 햄버거 메뉴. 배경은 바로 아래 섹션의 배경색을 따라 바뀜(크림↔오트밀, 0.3초 전환, 이미지 푸터 위에서는 투명 — `js/script.js` `headerBg()`). 메뉴가 열리면 같은 자리에 X 닫기 버튼(Esc로도 닫힘). **PC·태블릿·모바일 모두 햄버거** (닫힌 상태에 메뉴 항목 나열 안 함) |
-| 인트로 | 풀스크린. 왼쪽 아래 큰 `Portfolio`(영도 400, 84~260px, 자간 -0.02em) → 소개 문장 `새로운 것을 배우고, 배운 것을 제 것으로 만들어가는 정재은 입니다.`(14~17px), 오른쪽 위 `Designing ideas into / experiences.`(20~28px·500, 행간 1.4, experiences 포인트색) + `UI/UX · WEB · AI VISUAL · 3D`(13px), 오른쪽 아래 세로 SCROLL |
-| Who am I | 크림 배경. 좌측: 제목 + 프로필 사진(3:4) / 우측: Experience · Education · Tool(단색 아이콘 + 5단계 숙련도 + `4/5` 텍스트) · Skill(실제로 할 수 있는 업무 설명) |
-| Works | **오트밀 배경** (보조 글자 `#54483f`로 진하게). 좌측: 제목 고정 + `Selected Projects` / 우측: 프로젝트 세로 나열 (프로젝트명 → 16:9 이미지 → 2줄 설명 → 알약 태그 → `자세히 보기`). **메인은 최대 4개**, 프로젝트 아래 `지난 프로젝트 더보기` → `projects.html` |
-| Notes | 크림 배경(Works 오트밀과 번갈아 보이도록). 좌측: 제목 고정 + `Records & Thoughts` / 우측: 게시판 글 목록 (날짜 · 분류 알약 · 제목 · 한 줄 요약). 메인은 최대 5개. 데이터는 `js/script.js`의 `NOTES` 배열 → 게시판 연결 시 `renderNotes()`에 불러온 글 목록을 넘김 |
+| 인트로 | 풀스크린. 왼쪽 아래 큰 `Portfolio`(Cormorant Garamond 600, 84~260px, 자간 -0.015em) → 소개 문장 `새로운 것을 배우고, 배운 것을 제 것으로 만들어가는 정재은 입니다.`(14~18px, PC 1200px 이상 18px · 화면이 좁아지면 자연스럽게 줄어듦, `정재은`만 포인트색), 오른쪽 위 `Designing ideas into / experiences.`(20~28px·500, 행간 1.4, experiences 포인트색) + `UI/UX · WEB · AI VISUAL`(13px), 오른쪽 아래 세로 SCROLL |
+| Who am I | **오트밀 배경** (보조 글자 `#54483f`, 프로필 사진 자리·숙련도 빈 칸은 크림). 좌측: 제목 + 프로필 사진(3:4, 최대 288px) / 우측 순서: About Me(이름 · 직무 → 핵심 문장 → 짧은 소개) · Skill(실제로 할 수 있는 업무 설명) · Tool(단색 아이콘 + 5단계 숙련도 + `4/5` 텍스트) · Education · Experience |
+| Works | 크림 배경. 좌측: 제목 고정 + `Selected Projects` / 우측: 프로젝트 세로 나열 (프로젝트명 → 16:9 이미지 → 2줄 설명 → 알약 태그 → `자세히 보기`). **메인은 최대 4개**, 프로젝트 아래 `지난 프로젝트 더보기` → `projects.html` |
+| Notes | **오트밀 배경** (보조 글자 `#54483f`, 분류 알약은 크림). 좌측: 제목 고정 + `Records & Thoughts` / 우측: 게시판 글 목록 (날짜 · 분류 알약 · 제목 · 한 줄 요약). 메인은 최대 5개. 데이터는 `js/script.js`의 `NOTES` 배열 → 게시판 연결 시 `renderNotes()`에 불러온 글 목록을 넘김 |
 | 전체 작업물 (`projects.html`) | 큰 `Works` 제목 + 총 개수, 분야 필터(전체·UI/UX·WEB·BRANDING·AI VISUAL·3D), 3열(태블릿 2열·모바일 1열) 카드: 4:3 이미지 → 분야·연도 → 프로젝트명 → 2줄 설명. 처음 6개, `프로젝트 더 보기`로 6개씩 추가. 상세에서 돌아오면 필터·개수·스크롤 위치 복원 |
-| Contact | **오트밀 배경** (Works와 같음, 보조 글자 `#54483f`). 좌측: 제목 고정 / 우측: 폼 — 기업명(선택)·성함(필수) 한 줄, 이메일(필수), 문의내용(필수), 개인정보 동의(필수), `메일보내기`. 수신 주소 `raspberry8437@gmail.com` |
+| Contact | 크림 배경. 좌측: 제목 고정 / 우측: 폼 — 성함(필수), 이메일(필수), 문의내용(필수), 개인정보 동의(필수), `메일보내기`. 수신 주소 `raspberry8437@gmail.com` |
 | 이미지 푸터 | 큰 배경 이미지(높이 70vh) + 아래쪽 어두운 그라데이션 위에 왼쪽 큰 로고 `jeongjaeeun`, 오른쪽 저작권 표기 |
 
 ### 섹션 제목 전환 (`.pin`)
@@ -68,7 +67,7 @@
 
 ## 수정 시 지켜야 할 것
 - 색은 위 팔레트 변수만 사용하고, 새 색을 임의로 추가하지 않기
-- 제목류는 영도, 한글·본문은 에스코어드림 — 두 글꼴 외 다른 글꼴 섞지 않기
+- 제목류는 Cormorant Garamond, 한글·본문은 에스코어드림 — 두 글꼴 외 다른 글꼴 섞지 않기
 - 섹션 제목(`.pin-title`)은 `width:fit-content` 유지 — 크게 확대될 때 가로 스크롤이 생기지 않도록
 - 간격은 10px 단위, 모서리는 8px 기본(4px 단위) 유지
 - 한글 줄바꿈 `word-break: keep-all` 유지
@@ -81,7 +80,6 @@
 ### 아직 체크 안 된 것
 - [ ] 실제 모바일 기기에서 인트로 문구가 겹치거나 잘리지 않는지
 - [ ] 메뉴로 바로 이동했을 때 제목 축소·고정 상태가 정상인지
-- [ ] 태블릿(768~1023px)에서 기업명·성함 칸 배치 확인
 - [ ] 이미지 푸터의 모바일 크롭 확인
 - [ ] 키보드만으로 메뉴 열기·닫기·폼 입력이 되는지
 
