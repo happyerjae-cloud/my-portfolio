@@ -69,11 +69,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .intro-desc{position:absolute;top:calc(var(--header) + var(--sp6));right:var(--sp4);text-align:right}
 .intro-desc p{font-size:clamp(20px,2.2vw,28px);font-weight:500;line-height:1.4}
 .intro-desc em{font-style:normal;color:var(--terra)}
-.intro-desc .fields{margin-top:var(--sp2);font-size:13px;font-weight:500;letter-spacing:.08em;color:var(--ink-soft)}
+.intro-desc .fields{margin-top:var(--sp1);font-size:13px;font-weight:500;letter-spacing:.08em;color:var(--ink-soft)}
 .intro-title{position:absolute;left:var(--sp4);right:var(--sp4);bottom:var(--sp8)}
 .intro-title h1{font-family:var(--f-title);font-weight:600;font-size:clamp(84px,17vw,260px);line-height:.95;letter-spacing:-.015em}
 .intro-title h1 .ch{display:inline-block}
-.intro-title .lead{margin-top:var(--sp2);font-size:clamp(14px,calc(12px + .5vw),18px)}
+.intro-title .lead{position:relative;top:calc(var(--sp2) * -1);margin-top:var(--sp2);font-size:clamp(14px,calc(12px + .5vw),18px)}
 .intro-title .lead em{font-style:normal;color:var(--terra)}
 .scroll-cue{position:absolute;right:var(--sp4);bottom:var(--sp8);display:flex;flex-direction:column;align-items:center;gap:var(--sp1);font-size:11px;letter-spacing:.2em;color:var(--ink-soft)}
 .scroll-cue .bar{width:1px;height:70px;background:var(--line);position:relative;overflow:hidden}
@@ -104,8 +104,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 /* 섹션 배경: Who am I·Notes 오트밀 / Works·Contact 크림 — 색이 번갈아 바뀌므로 섹션 사이 구분선 없음 */
 #about,#notes{background:var(--oat);--ink-soft:#54483f} /* 오트밀 배경 위 보조 글자는 대비를 위해 더 진하게 */
 #works,#contact{background:var(--cream)}
-#about .profile-img,#about .level i,#about .level b{background:var(--cream)} /* 오트밀 위 오트밀 요소는 크림으로 */
-#about .level i.on,#about .level b.on{background:var(--terra)}
+#about .profile-img{background:var(--cream)} /* 오트밀 위 오트밀 요소는 크림으로 */
 #notes .note-cat{background:var(--cream)}
 
 /* ---------- Who am I ---------- */
@@ -124,21 +123,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .timeline .yr{font-weight:500;color:var(--ink)}
 .timeline b{font-weight:500;color:var(--ink)}
 
-.tools{list-style:none;max-width:520px}
-.tool{display:grid;grid-template-columns:30px 110px 1fr auto;align-items:center;gap:var(--sp2);padding:var(--sp1) 0}
+.tools{list-style:none;max-width:560px}
+.tool{display:grid;grid-template-columns:30px 1fr;align-items:center;gap:0 var(--sp2);padding:var(--sp2) 0}
 .tool-ico{width:30px;height:30px;border-radius:var(--r-sm);background:var(--ink);color:var(--cream);font-size:11px;font-weight:500;display:flex;align-items:center;justify-content:center;letter-spacing:.02em}
 .tool-nm{font-size:15px;color:var(--ink)!important}
-.level{display:flex;align-items:center;max-width:220px}
-.level i{flex:0 0 10px;height:10px;border-radius:50%;background:var(--oat)}
-.level i+i{margin-left:0}
-.level b{flex:1;height:1px;background:var(--oat)}
-.level i.on{background:var(--terra)}
-.level b.on{background:var(--terra)}
-.tool-lv{font-size:13px;font-weight:500;color:var(--ink-soft);min-width:28px;text-align:right}
-.skills{list-style:none;display:grid;gap:var(--sp1)}
-.skills li{position:relative;padding-left:var(--sp2)}
-.skills li::before{content:"";position:absolute;left:0;top:.75em;width:6px;height:6px;border-radius:50%;background:var(--apricot)}
-.skills b{font-weight:500;color:var(--ink)}
+.tool-desc{grid-column:2;grid-row:2;margin-top:var(--sp1);font-size:14px;color:var(--ink-soft)}
+.tool+.tool{border-top:1px solid var(--line)}
 
 /* ---------- Works ---------- */
 .works-meta{margin-top:var(--sp2);font-size:13px;color:var(--ink-soft);letter-spacing:.06em}
@@ -214,7 +204,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .shell{padding:0 var(--sp2)}
   .logo{font-size:19px}
   .intro-desc{right:var(--sp2);top:calc(var(--header) + var(--sp4))}
-  .intro-title{left:var(--sp2);right:var(--sp2);bottom:var(--sp10)}
+  .intro-title{left:var(--sp2);right:var(--sp2);bottom:150px}
   .scroll-cue{right:var(--sp2);bottom:var(--sp3)}
   .scroll-cue .bar{height:40px}
   .pin{padding:var(--sp8) 0}
@@ -222,7 +212,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .pin-title{font-size:44px}
   .profile-img{max-height:none;width:90%;max-width:324px}
   .timeline li{grid-template-columns:1fr;gap:0}
-  .tool{grid-template-columns:30px 90px 1fr auto;gap:var(--sp1)}
+  .tool{gap:0 var(--sp1)}
   .form-row{grid-template-columns:1fr;gap:6px}
   .form-row label{padding-top:0}
   .agree{margin-left:0}

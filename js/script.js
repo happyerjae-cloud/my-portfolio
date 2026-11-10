@@ -6,18 +6,6 @@
   const h1 = document.querySelector('.intro-title h1');
   h1.innerHTML = [...h1.textContent].map((c,i)=>`<span class="ch" aria-hidden="true" style="--i:${i}">${c}</span>`).join('');
 
-  /* ---- 숙련도 5단계 ---- */
-  document.querySelectorAll('.tool').forEach(t=>{
-    const lv = +t.dataset.level;
-    let dots = '';
-    for(let i=1;i<=5;i++){
-      dots += `<i class="${i<=lv?'on':''}"></i>`;
-      if(i<5) dots += `<b class="${i<lv?'on':''}"></b>`;
-    }
-    t.insertAdjacentHTML('beforeend',
-      `<span class="level" aria-hidden="true">${dots}</span><span class="tool-lv">${lv}/5</span>`);
-  });
-
   /* ---- 햄버거 메뉴 ---- */
   const btn = document.querySelector('.menu-btn');
   const menu = document.getElementById('menu');
