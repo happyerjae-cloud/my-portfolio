@@ -37,7 +37,9 @@
       const title = sec.querySelector('.pin-title');
       const small = parseFloat(getComputedStyle(title).getPropertyValue('--title-sm'));
       const h = title.offsetHeight; // 큰 크기 기준 높이
-      return { sec, title,
+      return { sec, title, h,
+        follow: [...sec.querySelectorAll('.pin-follow')], // 우측 콘텐츠와 함께 올라오다 멈추는 요소 (Who am I 프로필 사진)
+        firstBlock: sec.querySelector('.pin-body .block'), // 기준: 우측 첫 번째 콘텐츠 블록
         S: small / big, // 다 줄어들었을 때의 배율 (1보다 작음)
         hold: vh * HOLD,
         dist: vh - pinTop - 40,
@@ -54,6 +56,14 @@
       const s = 1 + (m.S - 1) * p;
       const ty = m.startY * (1 - p);
       m.title.style.transform = `translateY(${ty}px) scale(${s})`;
+      // 처음엔 화면 아래에 숨어 있다가, 우측 첫 블록과 같은 높이로 함께 올라오고 제자리에 닿으면 멈춤
+      if(m.firstBlock) m.follow.forEach(el=>{
+        const prev = parseFloat(el.dataset.fy || 0);
+        const base = el.getBoundingClientRect().top - prev; // 이동 전 원래 위치
+        const fy = Math.max(0, m.firstBlock.getBoundingClientRect().top - base);
+        el.dataset.fy = fy;
+        el.style.transform = `translateY(${fy}px)`;
+      });
       m.sec.style.setProperty('--p', p.toFixed(3));
     });
   }
@@ -61,7 +71,11 @@
   function applyMode(){
     root.classList.toggle('motion', motionMQ.matches);
     if(motionMQ.matches){ measure(); update(); }
-    else pins.forEach(sec=>{ sec.querySelector('.pin-title').style.transform=''; sec.style.removeProperty('--p'); });
+    else pins.forEach(sec=>{
+      sec.querySelector('.pin-title').style.transform='';
+      sec.querySelectorAll('.pin-follow').forEach(el=>{ el.style.transform=''; delete el.dataset.fy; });
+      sec.style.removeProperty('--p');
+    });
   }
 
   /* ---- 헤더 배경: 바로 아래 섹션의 배경색을 따라감 (이미지 푸터 위에서는 투명) ---- */

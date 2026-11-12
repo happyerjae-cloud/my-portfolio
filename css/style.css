@@ -100,6 +100,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .motion .pin-title{font-size:var(--title-big,var(--title-sm));margin-bottom:calc((var(--title-sm) - var(--title-big,var(--title-sm))) * 1.1);will-change:transform}
 .motion .pin-spacer{display:block;height:calc(100vh + var(--hold) - var(--pin-top) - 40px)}
 .motion .pin-fade{opacity:var(--p,0)}
+.motion .pin-follow{will-change:transform} /* 우측 콘텐츠와 함께 올라오다 멈춤 (위치는 JS가 지정) */
 
 /* 섹션 배경: Who am I·Notes 오트밀 / Works·Contact 크림 — 색이 번갈아 바뀌므로 섹션 사이 구분선 없음 */
 #about,#notes{background:var(--oat);--ink-soft:#54483f} /* 오트밀 배경 위 보조 글자는 대비를 위해 더 진하게 */
@@ -131,7 +132,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .tool+.tool{border-top:1px solid var(--line)}
 
 /* ---------- Works ---------- */
-.works-meta{margin-top:var(--sp2);font-size:13px;color:var(--ink-soft);letter-spacing:.06em}
+.works-meta{margin-top:var(--sp1);font-size:13px;color:var(--ink-soft);letter-spacing:.06em}
 .project+.project{margin-top:var(--sp8)}
 .project h3{font-size:20px;font-weight:500;margin-bottom:var(--sp2)}
 .project h3 .no{font-family:var(--f-body);color:var(--terra);margin-right:var(--sp1)}
@@ -149,7 +150,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .works-more{margin-top:var(--sp8);text-align:center}
 
 /* ---------- Notes ---------- */
-.notes-meta{margin-top:var(--sp2);font-size:13px;color:var(--ink-soft);letter-spacing:.06em}
+.notes-meta{margin-top:var(--sp1);font-size:13px;color:var(--ink-soft);letter-spacing:.06em}
 .notes-intro{font-size:15px;color:var(--ink-soft);margin-bottom:var(--sp3)}
 .note-list{list-style:none;border-top:1px solid var(--ink)}
 .note a{display:grid;grid-template-columns:110px 1fr;gap:var(--sp3);align-items:start;padding:var(--sp3) 0;border-bottom:1px solid var(--line)}
@@ -210,7 +211,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .pin{padding:var(--sp8) 0}
   .pin-grid{grid-template-columns:1fr;gap:var(--sp4)}
   .pin-title{font-size:44px}
-  .profile-img{max-height:none;width:90%;max-width:324px}
+  .profile-img{max-height:none;width:90%;max-width:324px;margin-left:auto;margin-right:auto} /* 모바일: 프로필 사진 가운데 정렬 */
   .timeline li{grid-template-columns:1fr;gap:0}
   .tool{gap:0 var(--sp1)}
   .form-row{grid-template-columns:1fr;gap:6px}
