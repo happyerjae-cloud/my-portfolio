@@ -110,7 +110,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 /* ---------- Who am I ---------- */
 .profile-img{margin-top:var(--sp3);width:min(90%,288px);aspect-ratio:3/4;max-height:calc((100vh - var(--pin-top) - 140px) * .9);border-radius:var(--r);overflow:hidden;background:var(--oat)}
-.profile-img img{width:100%;height:100%;object-fit:cover}
+.profile-img img{display:block;width:100%;height:100%;object-fit:cover}
 .block+.block{margin-top:var(--sp6)}
 .block h3{font-size:18px;font-weight:500;margin-bottom:var(--sp2)}
 .block p,.block li{font-size:15px;color:var(--ink-soft)}
@@ -137,7 +137,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .project h3{font-size:20px;font-weight:500;margin-bottom:var(--sp2)}
 .project h3 .no{font-family:var(--f-body);color:var(--terra);margin-right:var(--sp1)}
 .p-img{display:block;aspect-ratio:16/9;border-radius:var(--r);overflow:hidden;background:var(--oat)}
-.p-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.p-img img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
 .p-img:hover img{transform:scale(1.03)}
 .project p{margin-top:var(--sp2);font-size:15px;color:var(--ink-soft);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .p-foot{margin-top:var(--sp2);display:flex;align-items:center;justify-content:space-between;gap:var(--sp2);flex-wrap:wrap}
