@@ -1,15 +1,15 @@
 /* TODO: 실제 프로젝트로 바꿔주세요. 위에 있을수록 먼저 보입니다.
    url: 상세 페이지 주소 (아직 없으면 '' 로 두면 클릭되지 않는 카드로 표시) */
 const PROJECTS = [
-  { title:'카페 브랜드 아이덴티티', cat:'BRANDING',  year:2026, img:'img/project-1.jpg', desc:'동네 로스터리 카페의 로고, 컬러, 패키지, 메뉴판까지 하나의 톤으로 정리한 브랜딩 프로젝트', url:'' },
-  { title:'모바일 주문 앱 UI',      cat:'UI/UX',     year:2026, img:'img/project-2.jpg', desc:'매장 대기 없이 미리 주문하고 픽업하는 흐름을 설계한 모바일 앱', url:'' },
-  { title:'브랜드 웹사이트 리뉴얼',  cat:'WEB',       year:2025, img:'img/project-3.jpg', desc:'오래된 홈페이지를 반응형으로 다시 설계하고 직접 퍼블리싱', url:'' },
-  { title:'디저트 패키지 키 비주얼', cat:'AI VISUAL', year:2025, img:'img/project-1.jpg', desc:'생성형 AI로 시즌 디저트 패키지의 키 비주얼을 제작', url:'' },
-  { title:'굿즈 3D 목업',          cat:'3D',        year:2025, img:'img/project-2.jpg', desc:'Blender로 브랜드 굿즈의 3D 목업과 제품 이미지를 제작', url:'' },
-  { title:'예약 서비스 UX 개선',    cat:'UI/UX',     year:2025, img:'img/project-3.jpg', desc:'예약 단계의 이탈 지점을 찾아 화면 흐름을 다시 설계', url:'' },
-  { title:'베이커리 로고 리디자인',  cat:'BRANDING',  year:2024, img:'img/project-1.jpg', desc:'오래된 베이커리 로고를 현재 매장 분위기에 맞게 정리', url:'' },
-  { title:'포트폴리오 랜딩 페이지',  cat:'WEB',       year:2024, img:'img/project-2.jpg', desc:'HTML·CSS로 직접 구현한 개인 랜딩 페이지', url:'' },
-  { title:'공간 3D 렌더링',        cat:'3D',        year:2024, img:'img/project-3.jpg', desc:'카페 인테리어 시안을 3D로 렌더링해 공간감을 미리 확인', url:'' },
+  { title:'카페 브랜드 아이덴티티', cat:'BRANDING',  year:2026, img:'./img/project-1.jpg', desc:'동네 로스터리 카페의 로고, 컬러, 패키지, 메뉴판까지 하나의 톤으로 정리한 브랜딩 프로젝트', url:'' },
+  { title:'모바일 주문 앱 UI',      cat:'UI/UX',     year:2026, img:'./img/project-2.jpg', desc:'매장 대기 없이 미리 주문하고 픽업하는 흐름을 설계한 모바일 앱', url:'' },
+  { title:'브랜드 웹사이트 리뉴얼',  cat:'WEB',       year:2025, img:'./img/project-3.jpg', desc:'오래된 홈페이지를 반응형으로 다시 설계하고 직접 퍼블리싱', url:'' },
+  { title:'디저트 패키지 키 비주얼', cat:'AI VISUAL', year:2025, img:'./img/project-1.jpg', desc:'생성형 AI로 시즌 디저트 패키지의 키 비주얼을 제작', url:'' },
+  { title:'굿즈 3D 목업',          cat:'3D',        year:2025, img:'./img/project-2.jpg', desc:'Blender로 브랜드 굿즈의 3D 목업과 제품 이미지를 제작', url:'' },
+  { title:'예약 서비스 UX 개선',    cat:'UI/UX',     year:2025, img:'./img/project-3.jpg', desc:'예약 단계의 이탈 지점을 찾아 화면 흐름을 다시 설계', url:'' },
+  { title:'베이커리 로고 리디자인',  cat:'BRANDING',  year:2024, img:'./img/project-1.jpg', desc:'오래된 베이커리 로고를 현재 매장 분위기에 맞게 정리', url:'' },
+  { title:'포트폴리오 랜딩 페이지',  cat:'WEB',       year:2024, img:'./img/project-2.jpg', desc:'HTML·CSS로 직접 구현한 개인 랜딩 페이지', url:'' },
+  { title:'공간 3D 렌더링',        cat:'3D',        year:2024, img:'./img/project-3.jpg', desc:'카페 인테리어 시안을 3D로 렌더링해 공간감을 미리 확인', url:'' },
 ];
 const CATS = ['UI/UX','WEB','BRANDING','AI VISUAL','3D'];
 const STEP = 6; // 처음 6개, 이후 6개씩
